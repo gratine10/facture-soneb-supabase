@@ -1,0 +1,31 @@
+// index.js
+const express = require('express');
+const cors = require('cors');
+const { createClient } = require('@supabase/supabase-js');
+require('dotenv').config();
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// ⚙️ Connexion à Supabase
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY
+);
+
+// 🔌 API d'insertion
+app.post('/insert', async (req, res) => {
+  const { cellule, valeur } = req.body;
+
+  const { error } = await supabase
+    .from('factures')
+    .insert([{ cellule, valeur }]);
+
+  if (error) return res.status(500).json({ message: 'Erreur: ' + error.message });
+  res.json({ message: '✅ Donnée insérée avec succès !' });
+});
+
+app.listen(3000, () => {
+  console.log('Serveur en ligne sur le port 3000');
+});
