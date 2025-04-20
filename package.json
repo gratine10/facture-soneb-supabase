@@ -1,15 +1,23 @@
 {
-  "name": "fature_soneb_app",
+  "name": "facture-soneb-supabase",
   "version": "1.0.0",
+  "description": "Project URL\r https://gbqljylqsgzzximfwfpo.supabase.co\r https://gbqljylqsgzzximfwfpo.supabase.co",
   "main": "index.js",
   "scripts": {
-    "start": "node facture-soneb-supabase/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gratine10/facture-soneb-supabase.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "description": "",
+  "bugs": {
+    "url": "https://github.com/gratine10/facture-soneb-supabase/issues"
+  },
+  "homepage": "https://github.com/gratine10/facture-soneb-supabase#readme",
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
     "cors": "^2.8.5",
