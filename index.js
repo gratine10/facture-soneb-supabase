@@ -51,3 +51,17 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });
+
+// Add the start script to package.json
+const fs = require('fs');
+const packageJsonPath = './package.json';
+
+if (fs.existsSync(packageJsonPath)) {
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+  packageJson.scripts = packageJson.scripts || {};
+  packageJson.scripts.start = "node index.js";
+  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2), 'utf8');
+  console.log('Start script added to package.json');
+} else {
+  console.error('package.json not found. Please ensure it exists in the project root.');
+}
